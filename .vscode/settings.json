@@ -1,0 +1,6 @@
+{
+  "files.exclude": {
+    "Abnoan.Listas/bin": true,
+    "Abnoan.Listas/obj": true
+  }
+}
