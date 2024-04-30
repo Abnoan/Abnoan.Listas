@@ -139,9 +139,6 @@ internal class Program
         List<int> lista = arrayNumeros.ToList();
 
         numeros.Clear();
-
-
-
         #endregion
 
         #endregion
@@ -167,66 +164,23 @@ internal class Program
         };
         
         // Verifica se há algum aluno no curso de Matemática
-        bool temAlunoMatematica = alunos.Any(a => a.Curso == "Matemática");
 
         // Verifica se não há alunos no curso de Literatura
-        bool naoTemAlunoLiteratura = !alunos.Any(a => a.Curso == "Literatura");
 
         //Agrupar Alunos por Curso e Listar Alunos por Curso
-        var alunosPorCurso = alunos
-            .GroupBy(a => a.Curso)
-            .Select(group => new
-            {
-                Curso = group.Key,
-                Alunos = group.OrderBy(a => a.Nome)
-            });
 
         //Contar Alunos por Curso
-        var quantidadeAlunosPorCurso = alunos
-            .GroupBy(a => a.Curso)
-            .Select(group => new
-            {
-                Curso = group.Key,
-                Quantidade = group.Count()
-            });
 
         //Filtrar Alunos por Idade e Ordenar por Nome
-        var alunosFiltrados = alunos
-            .Where(a => a.Idade >= 21)
-            .OrderBy(a => a.Nome)
-            .Select(a => new { a.Nome, a.Idade, a.Curso });
 
         //Encontrar o Aluno Mais Velho em Cada Curso
-        var alunoMaisVelhoPorCurso = alunos
-            .GroupBy(a => a.Curso)
-            .Select(g => new
-            {
-                Curso = g.Key,
-                AlunoMaisVelho = g.OrderByDescending(a => a.Idade).FirstOrDefault()
-            });
 
         //Listar Alunos e Seus Cursos em Ordem Alfabética de Curso
-        var alunosOrdenadosPorCurso = alunos
-            .OrderBy(a => a.Curso)
-            .ThenBy(a => a.Nome)
-            .Select(a => new { a.Nome, a.Curso });
 
         //Agrupar Alunos por Idade e Contar Cada Grupo
-        var grupoPorIdade = alunos
-            .GroupBy(a => a.Idade)
-            .Select(g => new
-            {
-                Idade = g.Key,
-                Quantidade = g.Count(),
-                Alunos = g.Select(a => a.Nome)
-            });
 
         //Listar Alunos que Possuem 'a' no Nome e Classificar por Curso e Idade
-        var alunosComA = alunos
-            .Where(a => a.Nome.ToLower().Contains('a'))
-            .OrderBy(a => a.Curso)
-            .ThenByDescending(a => a.Idade)
-            .Select(a => new { a.Nome, a.Curso, a.Idade });
+
         #endregion
 
 
