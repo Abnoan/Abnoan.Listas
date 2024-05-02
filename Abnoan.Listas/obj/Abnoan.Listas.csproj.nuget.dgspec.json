@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\abnoa\\Abnoan.Listas\\Abnoan.Listas\\Abnoan.Listas.csproj": {}
+    "c:\\Users\\abnoa\\Abnoan.Listas\\Abnoan.Listas\\Abnoan.Listas.csproj": {}
   },
   "projects": {
-    "C:\\Users\\abnoa\\Abnoan.Listas\\Abnoan.Listas\\Abnoan.Listas.csproj": {
+    "c:\\Users\\abnoa\\Abnoan.Listas\\Abnoan.Listas\\Abnoan.Listas.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\abnoa\\Abnoan.Listas\\Abnoan.Listas\\Abnoan.Listas.csproj",
+        "projectUniqueName": "c:\\Users\\abnoa\\Abnoan.Listas\\Abnoan.Listas\\Abnoan.Listas.csproj",
         "projectName": "Abnoan.Listas",
-        "projectPath": "C:\\Users\\abnoa\\Abnoan.Listas\\Abnoan.Listas\\Abnoan.Listas.csproj",
+        "projectPath": "c:\\Users\\abnoa\\Abnoan.Listas\\Abnoan.Listas\\Abnoan.Listas.csproj",
         "packagesPath": "C:\\Users\\abnoa\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\abnoa\\Abnoan.Listas\\Abnoan.Listas\\obj\\",
+        "outputPath": "c:\\Users\\abnoa\\Abnoan.Listas\\Abnoan.Listas\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\abnoa\\AppData\\Roaming\\NuGet\\NuGet.Config",

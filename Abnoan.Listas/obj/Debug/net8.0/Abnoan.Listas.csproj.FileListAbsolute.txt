@@ -1,0 +1,15 @@
+c:\Users\abnoa\Abnoan.Listas\Abnoan.Listas\bin\Debug\net8.0\Abnoan.Listas.exe
+c:\Users\abnoa\Abnoan.Listas\Abnoan.Listas\bin\Debug\net8.0\Abnoan.Listas.deps.json
+c:\Users\abnoa\Abnoan.Listas\Abnoan.Listas\bin\Debug\net8.0\Abnoan.Listas.runtimeconfig.json
+c:\Users\abnoa\Abnoan.Listas\Abnoan.Listas\bin\Debug\net8.0\Abnoan.Listas.dll
+c:\Users\abnoa\Abnoan.Listas\Abnoan.Listas\bin\Debug\net8.0\Abnoan.Listas.pdb
+c:\Users\abnoa\Abnoan.Listas\Abnoan.Listas\obj\Debug\net8.0\Abnoan.Listas.GeneratedMSBuildEditorConfig.editorconfig
+c:\Users\abnoa\Abnoan.Listas\Abnoan.Listas\obj\Debug\net8.0\Abnoan.Listas.AssemblyInfoInputs.cache
+c:\Users\abnoa\Abnoan.Listas\Abnoan.Listas\obj\Debug\net8.0\Abnoan.Listas.AssemblyInfo.cs
+c:\Users\abnoa\Abnoan.Listas\Abnoan.Listas\obj\Debug\net8.0\Abnoan.Listas.csproj.CoreCompileInputs.cache
+c:\Users\abnoa\Abnoan.Listas\Abnoan.Listas\obj\Debug\net8.0\Abnoan.Listas.sourcelink.json
+c:\Users\abnoa\Abnoan.Listas\Abnoan.Listas\obj\Debug\net8.0\Abnoan.Listas.dll
+c:\Users\abnoa\Abnoan.Listas\Abnoan.Listas\obj\Debug\net8.0\refint\Abnoan.Listas.dll
+c:\Users\abnoa\Abnoan.Listas\Abnoan.Listas\obj\Debug\net8.0\Abnoan.Listas.pdb
+c:\Users\abnoa\Abnoan.Listas\Abnoan.Listas\obj\Debug\net8.0\Abnoan.Listas.genruntimeconfig.cache
+c:\Users\abnoa\Abnoan.Listas\Abnoan.Listas\obj\Debug\net8.0\ref\Abnoan.Listas.dll

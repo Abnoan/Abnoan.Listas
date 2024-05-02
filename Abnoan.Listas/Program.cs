@@ -1,4 +1,5 @@
 ﻿using Abnoan.Listas;
+using System.Linq;
 
 internal class Program
 {
@@ -27,7 +28,7 @@ internal class Program
         frutas.Add("Melão");
 
         List<string> frutasAsiaticas = ["Rambutan", "Durian", "Tamarillo"];
-        frutas.AddRange(new string[] { "Cereja", "Manga" });
+        frutas.AddRange(new string[] { "Cereja" });
         frutas.AddRange(frutasAsiaticas);
 
         // Adiciona o número 10 à lista
@@ -86,7 +87,7 @@ internal class Program
         frutas.RemoveAt(0);  // Remove o primeiro item, "Maçã"
 
         // Remove todas as frutas que começam com "B"
-        frutas.RemoveAll(f => f.StartsWith("B"));
+        frutas.RemoveAll(fruta => fruta.StartsWith("B"));
 
         #endregion
 
@@ -122,12 +123,14 @@ internal class Program
         numeros = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
         var novosNumerosPares = numeros.Where(n => n % 2 == 0);
 
+
         var quadrados = numeros.Select(n => n * n);
 
-        var ordenado = numeros.OrderBy(n => n);
+        var ordenado = numeros.OrderBy(numero => numero);
         var ordenadoDesc = numeros.OrderByDescending(n => n);
 
         var grupos = numeros.GroupBy(n => n % 2 == 0 ? "Par" : "Ímpar");
+
         #endregion
 
         #region Manipulação e Conversão
@@ -160,26 +163,90 @@ internal class Program
             new Aluno { Nome = "Carla", Idade = 24, Curso = "Biologia" },
             new Aluno { Nome = "Daniel", Idade = 25, Curso = "Química" },
             new Aluno { Nome = "Eva", Idade = 21, Curso = "Matemática" },
-            new Aluno { Nome = "Marco", Idade = 23, Curso = "Física" }
+            new Aluno { Nome = "Marco", Idade = 23, Curso = "Física" },
+            new Aluno { Nome = "Leo", Idade = 30, Curso = "FC .NET" },
         };
-        
+
+
+        var ramos = new Aluno() { Nome = "Leo", Idade = 30, Curso = "FC .NET" };
+
         // Verifica se há algum aluno no curso de Matemática
+        var temMatematica = alunos.Any(s => s.Curso == "Matemática");
+        var temRamos = alunos.Contains(ramos);
+
+        // var temMatematicaWhere = alunos.Where(s => s.Curso == "Matemática").Any();
+        // temMatematica = temMatematicaWhere.Any();
+
 
         // Verifica se não há alunos no curso de Literatura
+        var naoTemLiteratura = !alunos.Any(aluno => aluno.Curso.Equals("Literatura"));
 
         //Agrupar Alunos por Curso e Listar Alunos por Curso
+        var alunosPorCurso = alunos
+        .GroupBy(aluno => aluno.Curso)
+        .Select(group => new
+        {
+            Curso = group.Key,
+            Quantidade = group.Count()
+        });
 
+        //var alunosMAte = alunosPorCurso.Where(s => s.Curso == "Matematica");
         //Contar Alunos por Curso
 
         //Filtrar Alunos por Idade e Ordenar por Nome
+        var alunosPorIdade = alunos
+        .Where(s => s.Idade >= 18 && s.Idade <= 26)
+        .OrderBy(s => s.Nome).ToList();
+
 
         //Encontrar o Aluno Mais Velho em Cada Curso
+        var alunosMaisVelhoPorCurso = alunos
+        .GroupBy(s => s.Curso)
+        .Select(aluno => new
+        {
+            Curso = aluno.Key,
+            AlunoMaisVelho = aluno.Max(s => s.Idade)
+        });
+
+        Console.WriteLine();
 
         //Listar Alunos e Seus Cursos em Ordem Alfabética de Curso
+        var alunosECursos = alunos
+        .OrderBy(s => s.Curso)
+        .ThenBy(s => s.Nome)
+        .ToList();
+
+        Console.WriteLine();
 
         //Agrupar Alunos por Idade e Contar Cada Grupo
+        var alunosPorIdadeAgrupado = alunos
+        .GroupBy(aluno => aluno.Idade)
+        .Select(grupo => new
+        {
+            Idade = grupo.Key,
+            Quantidade = grupo.Count(),
+            Alunos = grupo.Select(a => a.Nome)
+        });
+
+
 
         //Listar Alunos que Possuem 'a' no Nome e Classificar por Curso e Idade
+        var alunosComA = alunos
+        .Where(aluno => aluno.Nome.Contains("a")
+        || aluno.Nome.Contains("A"))
+        .OrderBy(aluno => aluno.Curso)
+        .ThenBy(aluno => aluno.Idade).ToList();
+
+        foreach (var item in alunosComA)
+        {
+            Console.WriteLine(item.Curso);
+            Console.WriteLine(item.Nome);
+            Console.WriteLine(item.Idade);
+        }
+
+
+
+        Console.WriteLine();
 
         #endregion
 
@@ -216,8 +283,18 @@ internal class Program
             .Select(group => new
             {
                 Categoria = group.Key,
-                Livros = group.OrderBy(l => l.Titulo)
-            });
+                Livros = group.OrderBy(l => l.Titulo).ToList()
+            }).ToList();
+
+        foreach (var item in livrosPorCategoria)
+        {
+            Console.WriteLine("Categoria:" + item.Categoria);
+            foreach (var livro in item.Livros)
+            {
+                Console.WriteLine("Livro:" + livro.Titulo);
+            }
+        }
+
         //Filtrar livros com mais de 400 páginas:
         var livrosLongos = biblioteca.Where(l => l.NumeroDePaginas > 400);
 
@@ -228,7 +305,7 @@ internal class Program
             {
                 Autor = group.Key,
                 NumeroDeLivros = group.Count()
-            });
+            }).ToList();
 
         //Encontrar livros que contêm "História" no título:
         var livrosComHistoria = biblioteca.Where(l => l.Titulo.Contains("História"));
@@ -236,7 +313,16 @@ internal class Program
         //Identificar autores com mais de três livros publicados:
         var autoresProlificos = livrosPorAutor.Where(a => a.NumeroDeLivros > 3);
 
+        var livrosPorAutorQtd = biblioteca
+                    .Where(autor => autor.Autor.Count() >= 2)
+                     .GroupBy(l => l.Autor)
+                     .Select(group => new
+                     {
+                         Autor = group.Key,
+                         NumeroDeLivros = group.Count()
+                     }).ToList();
 
+                     Console.WriteLine();
         #endregion
 
     }
